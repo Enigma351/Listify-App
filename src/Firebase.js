@@ -1,9 +1,14 @@
 // src/firebase.js
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+
+const apiKey = import.meta.env.VITE_FIREBASE_API_KEY
+const AUTH_DOMAIN = import.meta.env.VITE_FIREBASE_AUTH_DOMAIN
+
+
 const firebaseConfig = {
-  apiKey: 'AIzaSyDxtlo9RGtFL7DHQmLl71lFW7yd0ODkLJQ',
-  authDomain: 'listify-app-8cb23.firebaseapp.com',
+  apiKey: `${apiKey}`,
+  authDomain: `${AUTH_DOMAIN}`,
   projectId: 'listify-app-8cb23',
   storageBucket: 'listify-app-8cb23.firebasestorage.app',
   messagingSenderId: '957906633640',
