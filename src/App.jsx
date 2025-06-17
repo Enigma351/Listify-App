@@ -7,8 +7,10 @@ import Signup from './pages/Signup';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './Firebase';
 import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router';
 import PrivateRoute from './components/PrivateRoute';
+
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -27,12 +29,12 @@ function App() {
         <Navbar />
       ) : (
         <div className="w-full h-14 px-6 bg-black text-white flex items-center">
-          <h1
-            className="text-xl font-bold"
+          <Link to="/"
+            className="text-xl font-bold  transition-transform duration-300 cursor-pointer hover:scale-110 hover:rotate-2"
             style={{ textShadow: '0 0 8px #ffffff' }}
           >
             LISTIFY
-          </h1>
+          </Link>
         </div>
       )}
 

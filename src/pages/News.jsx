@@ -5,6 +5,9 @@ import { auth } from '../Firebase';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+const api = import.meta.env.VITE_API_KEY;
+
+
 const News = () => {
   const [articles, setArticles] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -33,7 +36,7 @@ const News = () => {
       const fetchNews = async () => {
         try {
           const res = await axios.get(
-            `https://newsdata.io/api/1/news?apikey=pub_413960c9b4284bff8956266f9505e9ec&country=in&language=en`
+            `https://newsdata.io/api/1/news?apikey=${api}&country=in&language=en`
           );
           setArticles(res.data.results || []);
           localStorage.setItem('news', JSON.stringify(res.data.results));
